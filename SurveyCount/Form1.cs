@@ -14,12 +14,14 @@ namespace SurveyCount
     public partial class Form1 : Form
     {
         private Dictionary<string, int> result = new Dictionary<string, int>();
+
         public Form1()
         {
             InitializeComponent();
             Form1_Resize(null, null);
         }
 
+        //Do Count
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(richTextBox1.Text))
@@ -55,6 +57,7 @@ namespace SurveyCount
             richTextBox1.Clear();
         }
 
+        //Save Result
         private void saveFileSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listBox1.Items.Count == 0)
@@ -79,6 +82,7 @@ namespace SurveyCount
             }
         }
 
+        //Resize and Reposition Form Elements
         private void Form1_Resize(object sender, EventArgs e)
         {
             int i = (this.Width - 40) / 2;
@@ -89,6 +93,7 @@ namespace SurveyCount
             button1.Location = new Point(button1.Location.X, richTextBox1.Location.Y + richTextBox1.Height + 10);
         }
 
+        //Import Text File
         private void openFileOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -102,11 +107,13 @@ namespace SurveyCount
             }
         }
 
+        //Exit
         private void exitEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Reset
         private void clearRToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
